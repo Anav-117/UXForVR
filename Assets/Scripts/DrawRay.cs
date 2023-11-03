@@ -25,10 +25,12 @@ public class DrawRay : MonoBehaviour
 
         //Line.transform.localPosition = new Vector3(0.0f, 50.0f, 0.0f);
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)) {
-            Line.SetActive(true);
+            //Line.SetActive(true);
+            Line.GetComponent<MeshCollider>().enabled = true;
         }
         else if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)){
-            Line.SetActive(false);
+            Line.GetComponent<MeshCollider>().enabled  = false;
+            //Line.SetActive(false);
         }
         //Debug.Log(Line.transform.localScale);
 
