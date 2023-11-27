@@ -14,10 +14,12 @@ public class CubeColor : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         hit = true;
+        other.gameObject.GetComponent<MeshCollider>().enabled = false;
     }
 
     public void Blink() {
-        StartCoroutine(Delay());
+        gameObject.GetComponent<Renderer>().material.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        //StartCoroutine(Delay());
     }
 
     // Update is called once per frame

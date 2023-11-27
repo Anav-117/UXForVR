@@ -7,6 +7,8 @@ public class DrawRay : MonoBehaviour
     public LineRenderer lineRenderer;
     public GameObject Line;
 
+    public bool hit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +26,18 @@ public class DrawRay : MonoBehaviour
         // lineRenderer.SetPosition(1,transform.position + 100*transform.forward);
 
         //Line.transform.localPosition = new Vector3(0.0f, 50.0f, 0.0f);
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger)) {
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) {
             //Line.SetActive(true);
             Line.GetComponent<MeshCollider>().enabled = true;
+            hit = true;
         }
-        else if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)){
-            Line.GetComponent<MeshCollider>().enabled  = false;
-            //Line.SetActive(false);
-        }
+        //Line.GetComponent<MeshCollider>().enabled = false;
+        // else if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger)){
+        //     //Line.GetComponent<MeshCollider>().enabled  = false;
+        //     hit = false;
+        //     //Line.SetActive(false);
+        // }
+
         //Debug.Log(Line.transform.localScale);
 
         // RaycastHit hit;
